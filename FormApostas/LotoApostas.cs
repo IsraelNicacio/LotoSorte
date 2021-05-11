@@ -169,27 +169,21 @@ namespace FormApostas
         private void btnMegaSenaSortear_Click(object sender, EventArgs e)
         {
             Sortear(Volante.Mega);
-        }
 
-        private async void btnMegaSenaApostar_Click(object sender, EventArgs e)
-        {
             if (listAposta != null && listAposta.Count > 0)
             {
                 foreach (var item in listAposta)
                 {
-                    JavascriptResponse response = await browser.EvaluateScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
-                    //$("#n01").trigger("click");
+                    browser.ExecuteScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
 
-                    if (response.Result != null)
-                    {
-                        ////Display the evaluation result if it is not empty
-                        //MessageBox.Show(response.Result.ToString(), "JavaScript Result");
-                    }
-
+                    Thread.Sleep(200);
                 }
-
-                browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
             }
+        }
+
+        private void btnMegaSenaApostar_Click(object sender, EventArgs e)
+        {
+            browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
         }
 
         private void btnMegaSenaHistorico_Click(object sender, EventArgs e)
@@ -211,17 +205,27 @@ namespace FormApostas
 
         private void btnQuinaSortear_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            Sortear(Volante.Quina);
+
+            if (listAposta != null && listAposta.Count > 0)
+            {
+                foreach (var item in listAposta)
+                {
+                    browser.ExecuteScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
+
+                    Thread.Sleep(200);
+                }
+            }
         }
 
         private void btnQuinaApostar_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
         }
 
         private void btnQuinaHistorico_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         #endregion
@@ -237,17 +241,27 @@ namespace FormApostas
 
         private void btnLotoFacilSortear_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            Sortear(Volante.LotoFacil);
+
+            if (listAposta != null && listAposta.Count > 0)
+            {
+                foreach (var item in listAposta)
+                {
+                    browser.ExecuteScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
+
+                    Thread.Sleep(200);
+                }
+            }
         }
 
         private void btnLotoFacilApostar_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
         }
 
         private void btnLotoFacilHistorico_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         #endregion
@@ -263,17 +277,27 @@ namespace FormApostas
 
         private void btnLotoManiaSortear_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            Sortear(Volante.LotoMania);
+
+            if (listAposta != null && listAposta.Count > 0)
+            {
+                foreach (var item in listAposta)
+                {
+                    browser.ExecuteScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
+
+                    Thread.Sleep(200);
+                }
+            }
         }
 
         private void btnLotoManiaApostar_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
         }
 
         private void btnLotoManiaHistorico_Click(object sender, EventArgs e)
         {
-            HideSubMenu();
+            
         }
 
         #endregion

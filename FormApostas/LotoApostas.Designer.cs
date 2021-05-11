@@ -448,6 +448,7 @@ namespace FormApostas
             this.Controls.Add(this.pnlMenusPrincipais);
             this.Name = "frmLotoApostas";
             this.ShowIcon = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLotoApostas_FormClosing);
             this.pnlMenusPrincipais.ResumeLayout(false);
             this.pnlLotoMania.ResumeLayout(false);
