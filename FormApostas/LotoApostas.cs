@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
@@ -14,7 +15,23 @@ namespace FormApostas
 {
     public partial class frmLotoApostas : Form
     {
+        private enum Volante
+        {
+            [Description("Mega Sena")]
+            Mega = 0,
+            [Description("Loto Facil")]
+            LotoFacil = 1,
+            [Description("Loto Mania")]
+            LotoMania = 2,
+            [Description("Quina")]
+            Quina = 3
+        }
+
         private ChromiumWebBrowser browser;
+        private static int qtdDezenas = 0;
+        private static int maxRandom = 0;
+        private static Volante volante;
+        private static List<int> listAposta;
 
         public frmLotoApostas()
         {
@@ -23,7 +40,7 @@ namespace FormApostas
             CustomizeDesingMenus();
 
             // Create a browser component
-            browser = new ChromiumWebBrowser();
+            browser = new ChromiumWebBrowser(@"https://www.loteriasonline.caixa.gov.br/silce-web/?utm_source=site_loterias&utm_medium=cross&utm_campaign=loteriasonline&utm_term=mega#/home");
             // Add it to the form and fill it to the form window.
             pnlPaginaLoteria.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
@@ -47,22 +64,22 @@ namespace FormApostas
 
         private void HideSubMenu()
         {
-            if(pnlMegaSena.Visible == true)
+            if (pnlMegaSena.Visible == true)
                 pnlMegaSena.Visible = false;
 
-            if(pnlQuina.Visible == true)
+            if (pnlQuina.Visible == true)
                 pnlQuina.Visible = false;
 
-            if(pnlLotoFacil.Visible == true)
+            if (pnlLotoFacil.Visible == true)
                 pnlLotoFacil.Visible = false;
 
-            if(pnlLotoMania.Visible == true)
+            if (pnlLotoMania.Visible == true)
                 pnlLotoMania.Visible = false;
         }
 
         private void ShowSubMenu(Panel subMenu)
         {
-            if(subMenu.Visible == false)
+            if (subMenu.Visible == false)
             {
                 HideSubMenu();
                 subMenu.Visible = true;
@@ -76,10 +93,10 @@ namespace FormApostas
         private Form activeForm = null;
         private void OpenChildForm(Form childForm)
         {
-            if(activeForm != null)
+            if (activeForm != null)
                 activeForm.Close();
 
-            activeForm=childForm;
+            activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -98,6 +115,46 @@ namespace FormApostas
             }
         }
 
+        private void Sortear(Volante volante)
+        {
+            switch (volante)
+            {
+                case Volante.Mega:
+                    maxRandom = 60;
+                    qtdDezenas = 6;
+                    break;
+
+                case Volante.LotoFacil:
+                    maxRandom = 25;
+                    qtdDezenas = 15;
+                    break;
+
+                case Volante.LotoMania:
+                    maxRandom = 100;
+                    qtdDezenas = 50;
+                    break;
+
+                case Volante.Quina:
+                    maxRandom = 80;
+                    qtdDezenas = 5;
+                    break;
+            }
+
+            var rand = new Random();
+            listAposta = new List<int>();
+            int number;
+            for (int i = 0; i < qtdDezenas; i++)
+            {
+                do
+                {
+                    number = rand.Next(1, maxRandom);
+                } while (listAposta.Contains(number));
+                listAposta.Add(number);
+            }
+
+            listAposta.Sort();
+        }
+
         #endregion
 
         #region Mega-Sena
@@ -111,17 +168,33 @@ namespace FormApostas
 
         private void btnMegaSenaSortear_Click(object sender, EventArgs e)
         {
-            
+            Sortear(Volante.Mega);
         }
 
-        private void btnMegaSenaApostar_Click(object sender, EventArgs e)
+        private async void btnMegaSenaApostar_Click(object sender, EventArgs e)
         {
-            
+            if (listAposta != null && listAposta.Count > 0)
+            {
+                foreach (var item in listAposta)
+                {
+                    JavascriptResponse response = await browser.EvaluateScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
+                    //$("#n01").trigger("click");
+
+                    if (response.Result != null)
+                    {
+                        ////Display the evaluation result if it is not empty
+                        //MessageBox.Show(response.Result.ToString(), "JavaScript Result");
+                    }
+
+                }
+
+                browser.ExecuteScriptAsync("$(\"#colocarnocarrinho\").click()");
+            }
         }
 
         private void btnMegaSenaHistorico_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
