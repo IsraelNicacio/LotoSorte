@@ -52,6 +52,25 @@ namespace FormApostas
             Cef.Shutdown();
         }
 
+        /*
+         * Implementar consultar aposta
+        private async void ExecuteJavaScriptBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Check if the browser can execute JavaScript and the ScriptTextBox is filled
+            if (browser.CanExecuteJavascriptInMainFrame && !string.IsNullOrWhiteSpace(ScriptTextBox.Text))
+            {
+                //Evaluate javascript and remember the evaluation result
+                JavascriptResponse response = await browser.EvaluateScriptAsync(ScriptTextBox.Text);
+
+                if (response.Result != null)
+                {
+                    //Display the evaluation result if it is not empty
+                    MessageBox.Show(response.Result.ToString(), "JavaScript Result");
+                }
+            }
+        }
+        */
+
         #region Metodos Formulario
 
         private void CustomizeDesingMenus()
