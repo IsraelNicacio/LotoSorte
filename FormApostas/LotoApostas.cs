@@ -185,18 +185,29 @@ namespace FormApostas
             LoadUrl(@"https://www.loteriasonline.caixa.gov.br/silce-web/?utm_source=site_loterias&utm_medium=cross&utm_campaign=loteriasonline&utm_term=mega#/mega-sena");
         }
 
-        private void btnMegaSenaSortear_Click(object sender, EventArgs e)
+        private async void btnMegaSenaSortear_Click(object sender, EventArgs e)
         {
+            bool adicionarCarrinho = true;
+
             Sortear(Volante.Mega);
 
             if (listAposta != null && listAposta.Count > 0)
             {
                 foreach (var item in listAposta)
                 {
-                    browser.ExecuteScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
+                    JavascriptResponse result = await browser.EvaluateScriptAsync($"$(\"#n{item.ToString().PadLeft(2, '0')}\").trigger(\"click\")");
 
                     Thread.Sleep(200);
+
+                    if (result == null)
+                        adicionarCarrinho = false;
                 }
+            }
+
+            if (adicionarCarrinho)
+            {
+                if (MessageBox.Show("Deseja adicionar aposta no carrinho", "Pergunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    btnMegaSenaApostar.PerformClick();
             }
         }
 
@@ -244,7 +255,7 @@ namespace FormApostas
 
         private void btnQuinaHistorico_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         #endregion
@@ -280,7 +291,7 @@ namespace FormApostas
 
         private void btnLotoFacilHistorico_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         #endregion
@@ -316,9 +327,16 @@ namespace FormApostas
 
         private void btnLotoManiaHistorico_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         #endregion
+
+        private void btnCarrinho_Click(object sender, EventArgs e)
+        {
+            HideSubMenu();
+
+            browser.ExecuteScriptAsync("$(\"#carrinho\").click()");
+        }
     }
 }

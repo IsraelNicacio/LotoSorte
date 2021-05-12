@@ -53,17 +53,21 @@ namespace FormApostas
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlCabecalho = new System.Windows.Forms.Panel();
             this.pnlPaginaLoteria = new System.Windows.Forms.Panel();
+            this.btnCarrinho = new System.Windows.Forms.Button();
+            this.lblValorTotalAposta = new System.Windows.Forms.Label();
             this.pnlMenusPrincipais.SuspendLayout();
             this.pnlLotoMania.SuspendLayout();
             this.pnlLotoFacil.SuspendLayout();
             this.pnlQuina.SuspendLayout();
             this.pnlMegaSena.SuspendLayout();
+            this.pnlCabecalho.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenusPrincipais
             // 
             this.pnlMenusPrincipais.AutoScroll = true;
             this.pnlMenusPrincipais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(178)))));
+            this.pnlMenusPrincipais.Controls.Add(this.btnCarrinho);
             this.pnlMenusPrincipais.Controls.Add(this.pnlLotoMania);
             this.pnlMenusPrincipais.Controls.Add(this.btnLotoMania);
             this.pnlMenusPrincipais.Controls.Add(this.pnlLotoFacil);
@@ -77,7 +81,7 @@ namespace FormApostas
             this.pnlMenusPrincipais.Location = new System.Drawing.Point(0, 0);
             this.pnlMenusPrincipais.Name = "pnlMenusPrincipais";
             this.pnlMenusPrincipais.Padding = new System.Windows.Forms.Padding(2);
-            this.pnlMenusPrincipais.Size = new System.Drawing.Size(163, 551);
+            this.pnlMenusPrincipais.Size = new System.Drawing.Size(190, 695);
             this.pnlMenusPrincipais.TabIndex = 0;
             // 
             // pnlLotoMania
@@ -88,7 +92,7 @@ namespace FormApostas
             this.pnlLotoMania.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLotoMania.Location = new System.Drawing.Point(2, 476);
             this.pnlLotoMania.Name = "pnlLotoMania";
-            this.pnlLotoMania.Size = new System.Drawing.Size(159, 72);
+            this.pnlLotoMania.Size = new System.Drawing.Size(186, 72);
             this.pnlLotoMania.TabIndex = 8;
             // 
             // btnLotoManiaHistorico
@@ -102,7 +106,7 @@ namespace FormApostas
             this.btnLotoManiaHistorico.Location = new System.Drawing.Point(0, 46);
             this.btnLotoManiaHistorico.Name = "btnLotoManiaHistorico";
             this.btnLotoManiaHistorico.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoManiaHistorico.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoManiaHistorico.Size = new System.Drawing.Size(186, 23);
             this.btnLotoManiaHistorico.TabIndex = 5;
             this.btnLotoManiaHistorico.Text = "Histórico";
             this.btnLotoManiaHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,7 +124,7 @@ namespace FormApostas
             this.btnLotoManiaApostar.Location = new System.Drawing.Point(0, 23);
             this.btnLotoManiaApostar.Name = "btnLotoManiaApostar";
             this.btnLotoManiaApostar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoManiaApostar.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoManiaApostar.Size = new System.Drawing.Size(186, 23);
             this.btnLotoManiaApostar.TabIndex = 4;
             this.btnLotoManiaApostar.Text = "Apostar";
             this.btnLotoManiaApostar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,7 +142,7 @@ namespace FormApostas
             this.btnLotoManiaSortear.Location = new System.Drawing.Point(0, 0);
             this.btnLotoManiaSortear.Name = "btnLotoManiaSortear";
             this.btnLotoManiaSortear.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoManiaSortear.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoManiaSortear.Size = new System.Drawing.Size(186, 23);
             this.btnLotoManiaSortear.TabIndex = 3;
             this.btnLotoManiaSortear.Text = "Sortear Números";
             this.btnLotoManiaSortear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,7 +160,7 @@ namespace FormApostas
             this.btnLotoMania.Location = new System.Drawing.Point(2, 431);
             this.btnLotoMania.Name = "btnLotoMania";
             this.btnLotoMania.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnLotoMania.Size = new System.Drawing.Size(159, 45);
+            this.btnLotoMania.Size = new System.Drawing.Size(186, 45);
             this.btnLotoMania.TabIndex = 7;
             this.btnLotoMania.Text = "Loto Mania";
             this.btnLotoMania.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,7 +175,7 @@ namespace FormApostas
             this.pnlLotoFacil.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLotoFacil.Location = new System.Drawing.Point(2, 359);
             this.pnlLotoFacil.Name = "pnlLotoFacil";
-            this.pnlLotoFacil.Size = new System.Drawing.Size(159, 72);
+            this.pnlLotoFacil.Size = new System.Drawing.Size(186, 72);
             this.pnlLotoFacil.TabIndex = 6;
             // 
             // btnLotoFacilHistorico
@@ -185,7 +189,7 @@ namespace FormApostas
             this.btnLotoFacilHistorico.Location = new System.Drawing.Point(0, 46);
             this.btnLotoFacilHistorico.Name = "btnLotoFacilHistorico";
             this.btnLotoFacilHistorico.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoFacilHistorico.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoFacilHistorico.Size = new System.Drawing.Size(186, 23);
             this.btnLotoFacilHistorico.TabIndex = 5;
             this.btnLotoFacilHistorico.Text = "Histórico";
             this.btnLotoFacilHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -203,7 +207,7 @@ namespace FormApostas
             this.btnLotoFacilApostar.Location = new System.Drawing.Point(0, 23);
             this.btnLotoFacilApostar.Name = "btnLotoFacilApostar";
             this.btnLotoFacilApostar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoFacilApostar.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoFacilApostar.Size = new System.Drawing.Size(186, 23);
             this.btnLotoFacilApostar.TabIndex = 4;
             this.btnLotoFacilApostar.Text = "Apostar";
             this.btnLotoFacilApostar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -221,7 +225,7 @@ namespace FormApostas
             this.btnLotoFacilSortear.Location = new System.Drawing.Point(0, 0);
             this.btnLotoFacilSortear.Name = "btnLotoFacilSortear";
             this.btnLotoFacilSortear.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnLotoFacilSortear.Size = new System.Drawing.Size(159, 23);
+            this.btnLotoFacilSortear.Size = new System.Drawing.Size(186, 23);
             this.btnLotoFacilSortear.TabIndex = 3;
             this.btnLotoFacilSortear.Text = "Sortear Números";
             this.btnLotoFacilSortear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,7 +243,7 @@ namespace FormApostas
             this.btnLotoFacil.Location = new System.Drawing.Point(2, 314);
             this.btnLotoFacil.Name = "btnLotoFacil";
             this.btnLotoFacil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnLotoFacil.Size = new System.Drawing.Size(159, 45);
+            this.btnLotoFacil.Size = new System.Drawing.Size(186, 45);
             this.btnLotoFacil.TabIndex = 5;
             this.btnLotoFacil.Text = "Loto Fácil";
             this.btnLotoFacil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,7 +258,7 @@ namespace FormApostas
             this.pnlQuina.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlQuina.Location = new System.Drawing.Point(2, 242);
             this.pnlQuina.Name = "pnlQuina";
-            this.pnlQuina.Size = new System.Drawing.Size(159, 72);
+            this.pnlQuina.Size = new System.Drawing.Size(186, 72);
             this.pnlQuina.TabIndex = 4;
             // 
             // btnQuinaHistorico
@@ -268,7 +272,7 @@ namespace FormApostas
             this.btnQuinaHistorico.Location = new System.Drawing.Point(0, 46);
             this.btnQuinaHistorico.Name = "btnQuinaHistorico";
             this.btnQuinaHistorico.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnQuinaHistorico.Size = new System.Drawing.Size(159, 23);
+            this.btnQuinaHistorico.Size = new System.Drawing.Size(186, 23);
             this.btnQuinaHistorico.TabIndex = 5;
             this.btnQuinaHistorico.Text = "Histórico";
             this.btnQuinaHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -286,7 +290,7 @@ namespace FormApostas
             this.btnQuinaApostar.Location = new System.Drawing.Point(0, 23);
             this.btnQuinaApostar.Name = "btnQuinaApostar";
             this.btnQuinaApostar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnQuinaApostar.Size = new System.Drawing.Size(159, 23);
+            this.btnQuinaApostar.Size = new System.Drawing.Size(186, 23);
             this.btnQuinaApostar.TabIndex = 4;
             this.btnQuinaApostar.Text = "Apostar";
             this.btnQuinaApostar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -304,7 +308,7 @@ namespace FormApostas
             this.btnQuinaSortear.Location = new System.Drawing.Point(0, 0);
             this.btnQuinaSortear.Name = "btnQuinaSortear";
             this.btnQuinaSortear.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnQuinaSortear.Size = new System.Drawing.Size(159, 23);
+            this.btnQuinaSortear.Size = new System.Drawing.Size(186, 23);
             this.btnQuinaSortear.TabIndex = 3;
             this.btnQuinaSortear.Text = "Sortear Números";
             this.btnQuinaSortear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -322,7 +326,7 @@ namespace FormApostas
             this.btnQuina.Location = new System.Drawing.Point(2, 197);
             this.btnQuina.Name = "btnQuina";
             this.btnQuina.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnQuina.Size = new System.Drawing.Size(159, 45);
+            this.btnQuina.Size = new System.Drawing.Size(186, 45);
             this.btnQuina.TabIndex = 3;
             this.btnQuina.Text = "Quina";
             this.btnQuina.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -337,7 +341,7 @@ namespace FormApostas
             this.pnlMegaSena.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMegaSena.Location = new System.Drawing.Point(2, 125);
             this.pnlMegaSena.Name = "pnlMegaSena";
-            this.pnlMegaSena.Size = new System.Drawing.Size(159, 72);
+            this.pnlMegaSena.Size = new System.Drawing.Size(186, 72);
             this.pnlMegaSena.TabIndex = 2;
             // 
             // btnMegaSenaHistorico
@@ -351,7 +355,7 @@ namespace FormApostas
             this.btnMegaSenaHistorico.Location = new System.Drawing.Point(0, 46);
             this.btnMegaSenaHistorico.Name = "btnMegaSenaHistorico";
             this.btnMegaSenaHistorico.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMegaSenaHistorico.Size = new System.Drawing.Size(159, 23);
+            this.btnMegaSenaHistorico.Size = new System.Drawing.Size(186, 23);
             this.btnMegaSenaHistorico.TabIndex = 5;
             this.btnMegaSenaHistorico.Text = "Histórico";
             this.btnMegaSenaHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,7 +373,7 @@ namespace FormApostas
             this.btnMegaSenaApostar.Location = new System.Drawing.Point(0, 23);
             this.btnMegaSenaApostar.Name = "btnMegaSenaApostar";
             this.btnMegaSenaApostar.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMegaSenaApostar.Size = new System.Drawing.Size(159, 23);
+            this.btnMegaSenaApostar.Size = new System.Drawing.Size(186, 23);
             this.btnMegaSenaApostar.TabIndex = 4;
             this.btnMegaSenaApostar.Text = "Apostar";
             this.btnMegaSenaApostar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -387,7 +391,7 @@ namespace FormApostas
             this.btnMegaSenaSortear.Location = new System.Drawing.Point(0, 0);
             this.btnMegaSenaSortear.Name = "btnMegaSenaSortear";
             this.btnMegaSenaSortear.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMegaSenaSortear.Size = new System.Drawing.Size(159, 23);
+            this.btnMegaSenaSortear.Size = new System.Drawing.Size(186, 23);
             this.btnMegaSenaSortear.TabIndex = 3;
             this.btnMegaSenaSortear.Text = "Sortear Números";
             this.btnMegaSenaSortear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -405,7 +409,7 @@ namespace FormApostas
             this.btnMegaSena.Location = new System.Drawing.Point(2, 80);
             this.btnMegaSena.Name = "btnMegaSena";
             this.btnMegaSena.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMegaSena.Size = new System.Drawing.Size(159, 45);
+            this.btnMegaSena.Size = new System.Drawing.Size(186, 45);
             this.btnMegaSena.TabIndex = 1;
             this.btnMegaSena.Text = "Mega Sena";
             this.btnMegaSena.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -417,24 +421,55 @@ namespace FormApostas
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(2, 2);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(159, 78);
+            this.pnlLogo.Size = new System.Drawing.Size(186, 78);
             this.pnlLogo.TabIndex = 0;
             // 
             // pnlCabecalho
             // 
+            this.pnlCabecalho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(178)))));
+            this.pnlCabecalho.Controls.Add(this.lblValorTotalAposta);
             this.pnlCabecalho.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCabecalho.Location = new System.Drawing.Point(163, 0);
+            this.pnlCabecalho.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlCabecalho.Location = new System.Drawing.Point(190, 0);
             this.pnlCabecalho.Name = "pnlCabecalho";
-            this.pnlCabecalho.Size = new System.Drawing.Size(721, 80);
+            this.pnlCabecalho.Size = new System.Drawing.Size(694, 80);
             this.pnlCabecalho.TabIndex = 1;
             // 
             // pnlPaginaLoteria
             // 
             this.pnlPaginaLoteria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPaginaLoteria.Location = new System.Drawing.Point(163, 80);
+            this.pnlPaginaLoteria.Location = new System.Drawing.Point(190, 80);
             this.pnlPaginaLoteria.Name = "pnlPaginaLoteria";
-            this.pnlPaginaLoteria.Size = new System.Drawing.Size(721, 471);
+            this.pnlPaginaLoteria.Size = new System.Drawing.Size(694, 615);
             this.pnlPaginaLoteria.TabIndex = 2;
+            // 
+            // btnCarrinho
+            // 
+            this.btnCarrinho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(145)))), ((int)(((byte)(177)))));
+            this.btnCarrinho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCarrinho.FlatAppearance.BorderSize = 0;
+            this.btnCarrinho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarrinho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrinho.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCarrinho.Location = new System.Drawing.Point(2, 548);
+            this.btnCarrinho.Name = "btnCarrinho";
+            this.btnCarrinho.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCarrinho.Size = new System.Drawing.Size(186, 45);
+            this.btnCarrinho.TabIndex = 9;
+            this.btnCarrinho.Text = "Carrinho de Apostas";
+            this.btnCarrinho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCarrinho.UseVisualStyleBackColor = false;
+            this.btnCarrinho.Click += new System.EventHandler(this.btnCarrinho_Click);
+            // 
+            // lblValorTotalAposta
+            // 
+            this.lblValorTotalAposta.AutoSize = true;
+            this.lblValorTotalAposta.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblValorTotalAposta.Location = new System.Drawing.Point(6, 28);
+            this.lblValorTotalAposta.Name = "lblValorTotalAposta";
+            this.lblValorTotalAposta.Size = new System.Drawing.Size(80, 24);
+            this.lblValorTotalAposta.TabIndex = 0;
+            this.lblValorTotalAposta.Text = "R$ 0,00";
             // 
             // frmLotoApostas
             // 
@@ -442,7 +477,7 @@ namespace FormApostas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(884, 551);
+            this.ClientSize = new System.Drawing.Size(884, 695);
             this.Controls.Add(this.pnlPaginaLoteria);
             this.Controls.Add(this.pnlCabecalho);
             this.Controls.Add(this.pnlMenusPrincipais);
@@ -455,6 +490,8 @@ namespace FormApostas
             this.pnlLotoFacil.ResumeLayout(false);
             this.pnlQuina.ResumeLayout(false);
             this.pnlMegaSena.ResumeLayout(false);
+            this.pnlCabecalho.ResumeLayout(false);
+            this.pnlCabecalho.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -485,6 +522,8 @@ namespace FormApostas
         private System.Windows.Forms.Button btnMegaSena;
         private System.Windows.Forms.Panel pnlCabecalho;
         private System.Windows.Forms.Panel pnlPaginaLoteria;
+        private System.Windows.Forms.Button btnCarrinho;
+        private System.Windows.Forms.Label lblValorTotalAposta;
     }
 }
 
