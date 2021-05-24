@@ -32,6 +32,7 @@ namespace FormApostas
         private static int maxRandom = 0;
         private static Volante volante;
         private static List<int> listAposta;
+        private static List<string> temListAposta;
 
         public frmLotoApostas()
         {
@@ -44,6 +45,8 @@ namespace FormApostas
             // Add it to the form and fill it to the form window.
             pnlPaginaLoteria.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
+
+            temListAposta = new List<string>();
         }
 
         private void frmLotoApostas_FormClosing(object sender, FormClosingEventArgs e)
@@ -172,6 +175,12 @@ namespace FormApostas
             }
 
             listAposta.Sort();
+
+            var result = temListAposta.Contains(string.Join(",", listAposta));
+            if (result)
+                Sortear(volante);
+            else
+                temListAposta.Add(string.Join(",", listAposta));
         }
 
         #endregion
