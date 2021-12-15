@@ -41,7 +41,7 @@ namespace FormApostas
             CustomizeDesingMenus();
 
             // Create a browser component
-            browser = new ChromiumWebBrowser(@"https://www.loteriasonline.caixa.gov.br/silce-web/?utm_source=site_loterias&utm_medium=cross&utm_campaign=loteriasonline&utm_term=mega#/home");
+            browser = new ChromiumWebBrowser(@"https://www.loteriasonline.caixa.gov.br/silce-web/#/home");
             // Add it to the form and fill it to the form window.
             pnlPaginaLoteria.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
@@ -275,7 +275,7 @@ namespace FormApostas
         {
             ShowSubMenu(pnlLotoFacil);
 
-            LoadUrl(@"https://www.loteriasonline.caixa.gov.br/silce-web/?utm_source=site_loterias&utm_medium=cross&utm_campaign=loteriasonline&utm_term=mega#/lotofacil");
+            LoadUrl(@"https://www.loteriasonline.caixa.gov.br/silce-web/#/lotofacil");
         }
 
         private void btnLotoFacilSortear_Click(object sender, EventArgs e)
